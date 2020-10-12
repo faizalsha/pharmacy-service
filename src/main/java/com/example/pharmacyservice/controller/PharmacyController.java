@@ -6,9 +6,7 @@ import com.example.pharmacyservice.model.PharmacyCurrentRecord;
 import com.example.pharmacyservice.repository.PharmacyCurrentRecordRepository;
 import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -38,6 +36,11 @@ public class PharmacyController {
         return new GenericResponse(1, "success", null);
     }
 
+    @RequestMapping(value = "add-record", method = RequestMethod.POST)
+    public GenericResponse insertRecord(@RequestBody PharmacyCurrentRecord record){
+        repository.save(record);
+        return new GenericResponse(1, "success", null);
+    }
 
     @RequestMapping("/sample")
     public GenericResponse getSample(){
