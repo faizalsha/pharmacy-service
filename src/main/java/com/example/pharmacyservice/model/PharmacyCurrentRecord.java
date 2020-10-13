@@ -18,21 +18,31 @@ public class PharmacyCurrentRecord {
     private String physicianId;
     private String prescription;
     private Date date;
+    private String medicines;
     private Time time;
 
     public PharmacyCurrentRecord() {
     }
 
-    public PharmacyCurrentRecord(String id, String patientId, String physicianId, String prescription, Date date, Time time) {
+    public PharmacyCurrentRecord(String id, String patientId, String physicianId, String prescription, Date date, Time time, String medicine) {
         this.id = id;
         this.patientId = patientId;
         this.physicianId = physicianId;
         this.prescription = prescription;
         this.date = date;
         this.time = time;
+        this.medicines = medicine;
     }
 
-    public String getId() {
+    public String getMedicine() {
+		return medicines;
+	}
+
+	public void setMedicine(String medicine) {
+		this.medicines = medicine;
+	}
+
+	public String getId() {
         return id;
     }
 

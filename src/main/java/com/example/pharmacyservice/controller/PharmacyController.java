@@ -18,6 +18,7 @@ public class PharmacyController {
     @Autowired
     private PharmacyCurrentRecordRepository repository;
 
+    
     @RequestMapping("/get-all-records")
     public GenericResponse getAllRecords(){
         List<PharmacyCurrentRecord> records = null;
@@ -42,17 +43,6 @@ public class PharmacyController {
         return new GenericResponse(1, "success", null);
     }
 
-    @RequestMapping("/sample")
-    public GenericResponse getSample(){
-        PharmacyCurrentRecord record =
-                new PharmacyCurrentRecord("id",
-                        "patienid",
-                        "physicianID",
-                        "prescription",
-                        new Date(2020, 10, 10),
-                        new Time(10, 10, 10));
 
-        return new GenericResponse(1, "success", record);
-    }
 
 }
