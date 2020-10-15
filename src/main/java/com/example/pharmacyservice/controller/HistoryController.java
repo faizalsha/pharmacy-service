@@ -2,6 +2,7 @@ package com.example.pharmacyservice.controller;
 
 
 import com.example.pharmacyservice.model.GenericResponse;
+import com.example.pharmacyservice.model.PharmacyCurrentRecord;
 import com.example.pharmacyservice.model.PharmacyHistory;
 import com.example.pharmacyservice.repository.PharmacyHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,7 @@ public class HistoryController {
 
     @RequestMapping(value = "/insert-history", method = RequestMethod.POST)
     public GenericResponse insertHistory(@RequestBody PharmacyHistory history){
-        repository.save(history);
-        return new GenericResponse(1, "success", history);
+        return new GenericResponse(1, "success", repository.save(history));
     }
 
     @RequestMapping("/sample")
