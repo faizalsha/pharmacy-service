@@ -14,8 +14,10 @@ public class PharmacyHistory {
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
+    private String treatmentId;
     private String patientId;
     private String physicianId;
+    private String prescription;
     private String medicines;
     private Date date;
     private Time time;
@@ -23,10 +25,12 @@ public class PharmacyHistory {
     public PharmacyHistory() {
     }
 
-    public PharmacyHistory(String id, String patientId, String physicianId, String medicines, Date date, Time time) {
+    public PharmacyHistory(String id, String treatmentId, String patientId, String physicianId, String prescription, String medicines, Date date, Time time) {
         this.id = id;
+        this.treatmentId = treatmentId;
         this.patientId = patientId;
         this.physicianId = physicianId;
+        this.prescription = prescription;
         this.medicines = medicines;
         this.date = date;
         this.time = time;
@@ -38,6 +42,14 @@ public class PharmacyHistory {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getTreatmentId() {
+        return treatmentId;
+    }
+
+    public void setTreatmentId(String treatmentId) {
+        this.treatmentId = treatmentId;
     }
 
     public String getPatientId() {
@@ -56,12 +68,12 @@ public class PharmacyHistory {
         this.physicianId = physicianId;
     }
 
-    public String getMedicines() {
-        return medicines;
+    public String getPrescription() {
+        return prescription;
     }
 
-    public void setMedicines(String medicines) {
-        this.medicines = medicines;
+    public void setPrescription(String prescription) {
+        this.prescription = prescription;
     }
 
     public Date getDate() {
@@ -70,6 +82,14 @@ public class PharmacyHistory {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getMedicines() {
+        return medicines;
+    }
+
+    public void setMedicines(String medicines) {
+        this.medicines = medicines;
     }
 
     public Time getTime() {

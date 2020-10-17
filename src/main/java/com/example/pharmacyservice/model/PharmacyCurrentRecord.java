@@ -14,24 +14,26 @@ public class PharmacyCurrentRecord {
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
+    private String treatmentId;
     private String patientId;
     private String physicianId;
     private String prescription;
-    private Date date;
     private String medicines;
+    private Date date;
     private Time time;
 
     public PharmacyCurrentRecord() {
     }
 
-    public PharmacyCurrentRecord(String id, String patientId, String physicianId, String prescription, Date date, Time time, String medicine) {
+    public PharmacyCurrentRecord(String id, String treatmentId, String patientId, String physicianId, String prescription, String medicines, Date date, Time time) {
         this.id = id;
+        this.treatmentId = treatmentId;
         this.patientId = patientId;
         this.physicianId = physicianId;
         this.prescription = prescription;
+        this.medicines = medicines;
         this.date = date;
         this.time = time;
-        this.medicines = medicine;
     }
 
     public String getMedicine() {
@@ -88,5 +90,21 @@ public class PharmacyCurrentRecord {
 
     public void setTime(Time time) {
         this.time = time;
+    }
+
+    public String getTreatmentId() {
+        return treatmentId;
+    }
+
+    public void setTreatmentId(String treatmentId) {
+        this.treatmentId = treatmentId;
+    }
+
+    public String getMedicines() {
+        return medicines;
+    }
+
+    public void setMedicines(String medicines) {
+        this.medicines = medicines;
     }
 }

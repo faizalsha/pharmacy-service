@@ -34,12 +34,7 @@ public class HistoryController {
     @RequestMapping("/sample")
     public GenericResponse getSample(){
         PharmacyHistory history =
-                new PharmacyHistory("id",
-                        "patienid",
-                        "physician",
-                        "medicine",
-                        new Date(10, 10, 10),
-                        new Time(10, 10, 10));
+                new PharmacyHistory("id", "treatmentId", "patientid", "physicianid", "prescirption", "medicine", new Date(10, 10, 10), new Time(10 , 10 ,10));
 
         return new GenericResponse(1, "success", history);
     }
