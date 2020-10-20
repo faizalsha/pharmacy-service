@@ -21,7 +21,7 @@ public class HistoryController {
     @Autowired
     private PharmacyHistoryRepository repository;
 
-    @RequestMapping("get-all-history")
+    @RequestMapping("/get-all-history")
     public GenericResponse getAllHistory(){
         return new GenericResponse(1, "success", repository.findAll());
     }

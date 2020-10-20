@@ -18,7 +18,7 @@ public class PharmacyController {
     @Autowired
     private PharmacyCurrentRecordRepository repository;
 
-    
+
     @RequestMapping("/get-all-records")
     public GenericResponse getAllRecords(){
         List<PharmacyCurrentRecord> records = null;
@@ -49,12 +49,25 @@ public class PharmacyController {
         return new GenericResponse(1, "success", null);
     }
 
-    @RequestMapping(value = "add-record", method = RequestMethod.POST)
+    @RequestMapping(value = "/add-record", method = RequestMethod.POST)
     public GenericResponse insertRecord(@RequestBody PharmacyCurrentRecord record){
-        repository.save(record);
-        return new GenericResponse(1, "success", null);
+        return new GenericResponse(1, "success", repository.save(record));
     }
 
+
+    @RequestMapping("/sample")
+    public GenericResponse getSample(){
+        PharmacyCurrentRecord currentRecord =
+                new PharmacyCurrentRecord("id",
+                        "treatment-id",
+                        "patient-id",
+                        "physician-id",
+                        "prescrition",
+                        "medicine",
+                        new Date(10, 10, 1),
+                        new Time(1,1,1));
+        return new GenericResponse(1, "success", currentRecord);
+    }
 
 
 }
