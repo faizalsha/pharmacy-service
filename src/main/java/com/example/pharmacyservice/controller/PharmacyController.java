@@ -30,6 +30,18 @@ public class PharmacyController {
             return new GenericResponse(0, "exception " + e.getMessage(), null);
         }
     }
+    
+    @RequestMapping("/get-pharmacy-by-id/{id}")
+    public GenericResponse getPharmacy(@PathVariable String id){
+        if(repository.findById(id).isPresent()) 
+        {
+        	return new GenericResponse(1,"success",repository.findById(id).get());
+        }
+        else
+        {
+        	return new GenericResponse(1,"success",null);
+        }
+    }  
 
     @RequestMapping("/delete-by-id/{id}")
     public GenericResponse deleteRecordById(@PathVariable String id){
